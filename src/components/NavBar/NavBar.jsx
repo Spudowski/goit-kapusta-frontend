@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { selectIsLogin } from "../../redux/storeSlice";
 import ConfirmModal from "../Modal/ConfirmModal";
-import { logOut } from "../../redux/auth/operation";
+import { logOut } from "../../redux/auth/operation.js";
 
 export function NavBar() {
   const [isExitModalOpen, setExitModalOpen] = useState(false);
