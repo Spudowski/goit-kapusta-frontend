@@ -140,9 +140,9 @@ const storeSlice = createSlice({
     }})
 
 export const selectLightTheme = (state)=>state.data.lightTheme
-export const selectIsLoading = (state)=>state.data.isLoading
-export const selectIsError = (state)=>state.data.isError
-export const selectIsLogin = (state)=>state.data.isLogin
+export const selectIsLoading = (state)=>state.store.isLoading
+export const selectIsError = (state)=>state.store.isError
+export const selectIsLogin = (state)=>state.store.isLogin
 export const selectIsDelate = (state)=>state.data.isDelate
 export const selectIsRegister = (state)=>state.data.isRegister
 export const selectToken = (state)=>state.data.token
@@ -161,4 +161,4 @@ export const selectTransactionData = (state)=>state.data.TransactionData
 
 export const { readDataFromLocalStorage,  saveDataToLocalStorage} = storeSlice.actions
 
-export default storeSlice.reducer;         
+export default storeSlice.reducer;

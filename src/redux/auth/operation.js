@@ -3,9 +3,14 @@ import { createAsyncThunk } from "@reduxjs/toolkit"
 
 
 const axios = Axios.create({
-    baseURL: 'http://localhost:3000'
-  });
+  // baseURL: 'https://kapusta-backend.goit.global'
+  baseURL: 'http://localhost:3000'
+});
 
+
+const setAuthHeader = (accessToken) => {
+  axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
+};
 
 //User registration
 export const addUser = createAsyncThunk(
@@ -23,20 +28,41 @@ export const addUser = createAsyncThunk(
         return resp.data
 })
 
-
 ///User authentication
+// export const signInUser = createAsyncThunk(
+//     'signIn/fetchSignIn',
+//     async(user) => {
+//         const resp = await axios.post('/auth/login',
+//             //user
+//             {
+//                 "email": "user@example.com",
+//                 "password": "qwerty123"
+//             }
+//         )
+//         return resp.data
+//     })
+
+// Logowanie użytkownika
 export const signInUser = createAsyncThunk(
-    'signIn/fetchSignIn', 
-    async(user) => {
-        const resp = await axios.post('/auth/login',
-            //user
-            {
-                "email": "user@example.com",
-                "password": "qwerty123"
-            }
-        )
-        return resp.data
-})
+  "signIn/fetchSignIn",
+  async (user, thunkAPI) => {
+    try {
+      const response = await axios.post("/auth/login", {
+        email: user.email,
+        password: user.password,
+      });
+
+      const { accessToken, refreshToken, sid, userData } = response.data
+
+      setAuthHeader(accessToken)
+
+      return { accessToken, refreshToken, sid, userData }
+    } catch (error) {
+      console.error("Błąd logowania:", error.response?.data || error.message)
+      return thunkAPI.rejectWithValue(error.response?.data?.message || "Nie udało się zalogować")
+    }
+  }
+);
 
 //Logout
 export const signOutUser = createAsyncThunk(
