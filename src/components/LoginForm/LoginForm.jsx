@@ -1,6 +1,7 @@
 import { Field, Form, Formik } from "formik";
-import { useDispatch } from "react-redux";
-import { logIn, register } from "../../redux/auth/authOperations";
+import { useDispatch, useSelector } from "react-redux";
+import { signInUser } from "../../redux/auth/operation";
+import { selectIsLoading } from "../../redux/storeSlice";
 
 const initialValues = {
   email: "",
@@ -10,23 +11,21 @@ const initialValues = {
 export function LoginForm() {
 
     const dispatch = useDispatch()
+    const isLoading = useSelector(selectIsLoading)
+    // const error = useSelector(selectIsError)
         
         const handleSubmit = async (values, { resetForm }) => {
-        const { email, password } = values
-        
-      
-            if (!email || !password) {
-                alert("Email and password are required.")
-                return
-            }
-
-            try {
-                await dispatch(logIn({ email, password })).unwrap()
-                resetForm()
-            } catch (error) {
-                alert("Login failed: " + error)
-            }
-        }
+          const { email, password } = values
+  
+  try {
+    const action = await dispatch(signInUser(values)).unwrap()
+    console.log("Zalogowano pomyślnie:", action)
+    resetForm()
+  } catch (error) {
+    console.error("Logowanie nie powiodło się:", error)
+    alert("Logowanie nie powiodło się: " + error)
+  }
+}
 
     return (
         <div>
@@ -40,7 +39,9 @@ export function LoginForm() {
                     <Field type="email" name="email" placeholder="your@email.com" />
                     <label htmlFor="password">Password:</label>
                     <Field type="password" name="password" placeholder="Your password" />
-                    <button type="submit">LOG IN</button>
+                        <button type="submit" disabled={isLoading}>
+                            {isLoading ? "Logowanie..." : "ZALOGUJ SIĘ"}
+                    </button>
                     {/* <button type="submit">REGISTRATION</button> */}
                     </Form>
                      )}
