@@ -1,9 +1,8 @@
 import Axios from "axios"
 import { createAsyncThunk } from "@reduxjs/toolkit"
 
-
 const axios = Axios.create({
-    baseURL: 'http://localhost:3000'
+    baseURL: 'http://localhost:3000/api'
   });
 
 
@@ -14,15 +13,14 @@ export const addUser = createAsyncThunk(
         const resp = await axios.post('/auth/register',
             //newUser
             {
-                "name": "Olaf",
-                "email": "user@example.com",
-                "password": "qwerty123"
+                "username": "olaf",
+                "email": "user0@example.com",
+                "password": "qwerty123!"
             }
 
         )
         return resp.data
 })
-
 
 ///User authentication
 export const signInUser = createAsyncThunk(
@@ -31,8 +29,8 @@ export const signInUser = createAsyncThunk(
         const resp = await axios.post('/auth/login',
             //user
             {
-                "email": "user@example.com",
-                "password": "qwerty123"
+                "email": "user0@example.com",
+                "password": "qwerty123!"
             }
         )
         return resp.data
@@ -46,14 +44,18 @@ export const signOutUser = createAsyncThunk(
         const resp = await axios.post('/auth/logout')
         return resp
 })
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
-//Get new pair of tokens (use Bearer {refreshToken} instead of accessToken)
+//Not implemented - Get new pair of tokens (use Bearer {refreshToken} instead of accessToken)
 
 export const refreshUserToken = createAsyncThunk(
     'refreshUserToken/fetchRefreshUserToken', 
     async(sessionsId) => {
         const resp = await axios.post('/auth/refresh',
+<<<<<<< Updated upstream
             //sessionsId
             {
                 "sid": "507f1f77bcf86cd799439011"
@@ -63,5 +65,15 @@ export const refreshUserToken = createAsyncThunk(
 })
 
 
+=======
+
+            //sessionsId
+            {
+                "sid": "sadfasgergrshbsbdgjyujtyhsrtggsegsrtg"
+            }
+        )
+        return resp
+})
+>>>>>>> Stashed changes
 
 //Google authentication. WARNING: Works only for sign-in, after registered on front-end (if you're writing your back-end for a SPECIFIC front-end, then you can configure it right to work both for sign-up & sign-in)

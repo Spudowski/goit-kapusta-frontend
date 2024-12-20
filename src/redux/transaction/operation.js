@@ -3,7 +3,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit"
 
 
 const axios = Axios.create({
-    baseURL: 'http://localhost:3000'
+    baseURL: 'http://localhost:3000/api'
   });
 
 
@@ -96,8 +96,8 @@ export const userExpenseCategory = createAsyncThunk(
 
 export const userTransactionPeriodDate = createAsyncThunk(
     'userTransactionPeriodDate/fetchUserTransactionPeriodDate', 
-    async(date, token) => {
+    async(startDate, endDate, token) => {
         axios.defaults.headers.common.Authorization = `Bearer ${token}`
-        const resp = await axios.get(`/transaction/period-data/${date}`)
+        const resp = await axios.get(`/transaction/period-data?startDate=${startDate}&endDate=${endDate}`)
         return resp.data
 })
