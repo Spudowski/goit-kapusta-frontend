@@ -1,7 +1,7 @@
 /** @format */
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectBalance, setBalance } from "../redux/storeSlice";
+import { selectBalance } from "../redux/storeSlice";
 import { LoginForm } from "../components/LoginForm/LoginForm";
 import WelcomeModal from "../components/Modal/WelcomeModal";
 
