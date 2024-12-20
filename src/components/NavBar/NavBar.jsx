@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { selectIsLogin } from "../../redux/storeSlice";
 import ConfirmModal from "../Modal/ConfirmModal";
-import { logOut } from "../../redux/auth/operation.js";
+import { signOutUser } from "../../redux/auth/operation";
 
 export function NavBar() {
   const [isExitModalOpen, setExitModalOpen] = useState(false);
@@ -26,7 +26,7 @@ export function NavBar() {
 
   // Potwierdzenie w pierwszym oknie modalnym i otwarcie drugiego
   const confirmExit = () => {
-    dispatch(logOut()); // Akcja wylogowania
+    dispatch(signOutUser()); // Akcja wylogowania
     setExitModalOpen(false);
     console.log("User logged out");
     setAreYouSureModalOpen(true); // Otwieramy drugi modal "Are you sure?"
@@ -37,7 +37,7 @@ export function NavBar() {
   };
 
   const confirmAreYouSure = () => {
-    dispatch(logOut());
+    dispatch(signOutUser());
     console.log("User logged out");
     setAreYouSureModalOpen(false);
   };
