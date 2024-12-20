@@ -1,0 +1,23 @@
+.backgroundRoboczeDoUsuniecia {
+  background-color: var(--light-grey);
+  padding: 50px;
+}
+
+@media (min-width: 768px) {
+  .box {
+    border-radius: 30px;
+    width: 704px;
+    height: 348px;
+    box-shadow: 0 10px 60px 0 rgba(170, 178, 197, 0.2);
+    background: #fff;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+}
+@media (min-width: 1280px) {
+  .box {
+    width: 1034px;
+    height: 348px;
+  }
+}

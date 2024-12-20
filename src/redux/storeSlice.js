@@ -158,6 +158,9 @@ export const selectExpense = (state)=>state.data.expense
 export const selectExpenseCat = (state)=>state.data.expenseCat
 export const selectRxpenseStat = (state)=>state.data.expenseStat
 export const selectTransactionData = (state)=>state.data.TransactionData       
+export const selectBalance = (state) => state.balance; // Anita - poprawiłam = wywaliłam data, bo wyskakiwał mi błąd
+export const selectIncomesStat = (state) => state.incomesStat; // Anita - poprawiłam = wywaliłam data, bo wyskakiwał mi błąd
+export const selectExpenseStat = (state) => state.expenseStat; // Anita - poprawiłam = wywaliłam data, bo wyskakiwał mi błąd
 
 export const { readDataFromLocalStorage,  saveDataToLocalStorage} = storeSlice.actions
 
