@@ -25,7 +25,7 @@ export default function HomePage() {
   const handleConfirm = () => {
     const newBalance = prompt("Enter your balance:", "0");
     if (newBalance !== null && !isNaN(newBalance)) {
-      dispatch(setBalance(Number(newBalance)));
+      // dispatch(setBalance(Number(newBalance)));
       setWelcomeModalOpen(false);
     }
   };
