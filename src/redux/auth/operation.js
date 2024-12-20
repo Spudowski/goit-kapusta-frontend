@@ -1,42 +1,56 @@
-import Axios from "axios";
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import Axios from "axios"
+import { createAsyncThunk } from "@reduxjs/toolkit"
+
 
 const axios = Axios.create({
-  baseURL: "http://localhost:3000",
-});
+    baseURL: 'http://localhost:3000'
+  });
+
 
 //User registration
 export const addUser = createAsyncThunk(
-  "addUser/fetchaAddUser",
-  async (newUser) => {
-    const resp = await axios.post(
-      "/auth/register",
-      //newUser
-      {
-        name: "Olaf",
-        email: "user@example.com",
-        password: "qwerty123",
-      }
-    );
-    return resp.data;
-  }
-);
+    'addUser/fetchaAddUser', 
+    async(newUser) => {
+        const resp = await axios.post('/auth/register',
+            //newUser
+            {
+                "name": "Olaf",
+                "email": "user@example.com",
+                "password": "qwerty123"
+            }
+
+        )
+        return resp.data
+})
+
 
 ///User authentication
+// export const signInUser = createAsyncThunk(
+//     'signIn/fetchSignIn',
+//     async(user) => {
+//         const resp = await axios.post('/auth/login',
+//             //user
+//             {
+//                 "email": "user@example.com",
+//                 "password": "qwerty123"
+//             }
+//         )
+//         return resp.data
+//     })
+
+// Logowanie użytkownika
 export const signInUser = createAsyncThunk(
-  "signIn/fetchSignIn",
-  async (user) => {
-    const resp = await axios.post(
-      "/auth/login",
-      //user
-      {
-        email: "user@example.com",
-        password: "qwerty123",
-      }
-    );
-    return resp.data;
-  }
-);
+    'signIn/fetchSignIn', 
+    async(user) => {
+        const resp = await axios.post('/auth/login',
+            //user
+            {
+                "email": "user@example.com",
+                "password": "qwerty123"
+            }
+        )
+        return resp.data
+})
 
 //Logout
 export const signOutUser = createAsyncThunk(

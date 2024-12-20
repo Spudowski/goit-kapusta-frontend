@@ -48,7 +48,8 @@ const storeSlice = createSlice({
         })
 //2.signInUser
         .addCase(signInUser.fulfilled,  (state,action) => {
-            console.log("signInUser",action.payload)
+            console.log("signInUser", action.payload)
+            state.isLoading = false
         })
 //3.signOutUser      
         .addCase(signOutUser.fulfilled,  (state,action) => {
@@ -140,9 +141,9 @@ const storeSlice = createSlice({
     }})
 
 export const selectLightTheme = (state)=>state.data.lightTheme
-export const selectIsLoading = (state)=>state.data.isLoading
-export const selectIsError = (state)=>state.data.isError
-export const selectIsLogin = (state)=>state.data.isLogin
+export const selectIsLoading = (state)=>state.store.isLoading
+export const selectIsError = (state)=>state.store.isError
+export const selectIsLogin = (state)=>state.store.isLogin
 export const selectIsDelate = (state)=>state.data.isDelate
 export const selectIsRegister = (state)=>state.data.isRegister
 export const selectToken = (state)=>state.data.token
@@ -161,4 +162,4 @@ export const selectExpenseStat = (state) => state.store.expenseStat;
 
 export const { readDataFromLocalStorage,  saveDataToLocalStorage} = storeSlice.actions
 
-export default storeSlice.reducer;         
+export default storeSlice.reducer;
