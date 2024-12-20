@@ -1,0 +1,124 @@
+.login-form-wrapper {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    text-align: center;
+    color: #52555F;
+    align-items: center;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 0.19);
+}
+
+.login-form-input {
+    background-color: #F6F7FB;
+    color: #A6ABB9;
+    font-size: 14px;
+    letter-spacing: 4%;
+    padding-left: 26px;
+    width: 214px;
+    height: 52px;
+    border: none;
+    border-radius: 26px;
+    margin: 12px 0 12px 0;
+}
+
+.login-form-input-wrapper {
+    width: 240px;
+    text-align: left;
+}
+
+.login-form-button {
+    width: 116px;
+    height: 44px;
+    background-color: #FF751D;
+    border: none;
+    border-radius: 16px;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 0.19);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.login-form-button:active {
+    filter: brightness(0.9);
+}
+
+.login-form-button:hover,
+.login-form-button:focus {
+    transform: scale(1.1);
+}
+
+.register-form-button:active {
+    filter: brightness(0.9);
+}
+
+.register-form-button:hover,
+.register-form-button:focus {
+    transform: scale(1.1);
+}
+
+.register-form-button {
+    width: 116px;
+    height: 44px;
+    background-color: #F5F6FB;
+    border: none;
+    border-radius: 16px;
+    color: #52555F;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 4px 4px 12px 0px rgba(66, 68, 90, 0.19);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.login-form-button-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 24px 0 24px 0;
+}
+
+.login-form-label {
+    font-size: 10px;
+    color: black;
+}
+
+.google-form-button {
+    width: 116px;
+    height: 44px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 16px;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+    .login-form-wrapper {
+        width: 280px;
+        height: 496px;
+        margin: auto;        
+    }
+}
+
+
+/* tablet */
+@media (min-width: 768px) and (max-width: 1280px) {
+    .login-form-wrapper {
+        width: 426px;
+        height: 552px;
+        margin: auto;
+    }
+}
+
+/* desktop */
+@media (min-width: 1280px) {
+    .login-form-wrapper {
+        width: 426px;
+        height: 552px;
+        margin: auto;
+    }
+}

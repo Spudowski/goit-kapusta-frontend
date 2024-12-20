@@ -1,10 +1,10 @@
 import Axios from "axios"
 import { createAsyncThunk } from "@reduxjs/toolkit"
-
+import * as Yup from "yup";
 
 const axios = Axios.create({
   // baseURL: 'https://kapusta-backend.goit.global'
-  baseURL: 'http://localhost:3000'
+  baseURL: 'http://localhost:3000/api'
 });
 
 

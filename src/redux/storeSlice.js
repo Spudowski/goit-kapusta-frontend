@@ -48,7 +48,8 @@ const storeSlice = createSlice({
         })
 //2.signInUser
         .addCase(signInUser.fulfilled,  (state,action) => {
-            console.log("signInUser",action.payload)
+            console.log("signInUser", action.payload)
+            state.isLoading = false
         })
 //3.signOutUser      
         .addCase(signOutUser.fulfilled,  (state,action) => {
