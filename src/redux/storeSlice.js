@@ -52,9 +52,6 @@ const storeSlice = createSlice({
         })
 //2.signInUser
         .addCase(signInUser.fulfilled,  (state,action) => {
-<<<<<<< Updated upstream
-            console.log("signInUser",action.payload)
-=======
             console.log("signInUser", action.payload)
             state.isError = null
             state.isLoading = false
@@ -69,7 +66,6 @@ const storeSlice = createSlice({
             state.balance = action.payload.userData.balance
 //          add transation
             
->>>>>>> Stashed changes
         })
 //3.signOutUser      
         .addCase(signOutUser.fulfilled,  (state,action) => {
