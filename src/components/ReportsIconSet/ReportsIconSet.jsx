@@ -13,7 +13,7 @@ export default function ReportsIconSet() {
       <div className={css.box}>
         <Switch />
         <div>ReportsIconSet</div>
-        <div>{incomesStat}</div>
+        <div>{`${incomesStat}`}</div>
       </div>
     </div>
   );
