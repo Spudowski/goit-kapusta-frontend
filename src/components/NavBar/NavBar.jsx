@@ -9,23 +9,37 @@ import { logOut } from "../../redux/auth/authOperations.js";
 
 export function NavBar() {
   const [isExitModalOpen, setExitModalOpen] = useState(false);
+  const [isAreYouSureModalOpen, setAreYouSureModalOpen] = useState(false);
+
   const dispatch = useDispatch();
 
   // const isLoggedIn = useSelector(selectIsLogin)
   const isLoggedIn = true;
 
   const handleExitClick = () => {
-    setExitModalOpen(true); // Otwieramy modal po kliknięciu "exit"
+    setExitModalOpen(true); // Otwieramy modal "Do you really want to leave?" po kliknięciu "exit"
   };
 
   const closeExitModal = () => {
-    setExitModalOpen(false); // Zamykamy modal
+    setExitModalOpen(false); // Zamykamy modal  "Do you really want to leave?"
   };
 
+  // Potwierdzenie w pierwszym oknie modalnym i otwarcie drugiego
   const confirmExit = () => {
     dispatch(logOut()); // Akcja wylogowania
     setExitModalOpen(false);
     console.log("User logged out");
+    setAreYouSureModalOpen(true); // Otwieramy drugi modal "Are you sure?"
+  };
+
+  const closeAreYouSureModal = () => {
+    setAreYouSureModalOpen(false); // Zamykamy modal "Are you sure?"
+  };
+
+  const confirmAreYouSure = () => {
+    dispatch(logOut());
+    console.log("User logged out");
+    setAreYouSureModalOpen(false);
   };
 
   return (
@@ -49,6 +63,14 @@ export function NavBar() {
         onClose={closeExitModal}
         onConfirm={confirmExit}
         message="Are you sure you want to leave?"
+      />
+
+      {/* Modal "Are you sure?" */}
+      <ConfirmModal
+        isOpen={isAreYouSureModalOpen}
+        onClose={closeAreYouSureModal}
+        onConfirm={confirmAreYouSure}
+        message="Are you sure?"
       />
     </div>
   );
