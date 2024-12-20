@@ -199,24 +199,31 @@ const storeSlice = createSlice({
 
     }})
 
-<<<<<<< Updated upstream
-export const selectLightTheme = (state)=>state.data.lightTheme
-export const selectIsLoading = (state)=>state.store.isLoading
-export const selectIsError = (state)=>state.store.isError
-export const selectIsLogin = (state)=>state.store.isLogin
-export const selectIsDelate = (state)=>state.data.isDelate
-export const selectIsRegister = (state)=>state.data.isRegister
-export const selectToken = (state)=>state.data.token
-export const selectTefreshToken = (state)=>state.data.refreshToken
-export const selectSesionId  = (state)=>state.data.sesionId
-export const selectUserName = (state)=>state.data.userName
-export const selectEmail = (state)=>state.data.email
-export const selectIncomes = (state)=>state.data.incomes
-export const selectIncomesCat = (state)=>state.data.incomesCat
-export const selectExpense = (state)=>state.data.expense
-export const selectExpenseCat = (state)=>state.data.expenseCat
-export const selectTransactionData = (state)=>state.data.TransactionData       
+    export const selectLightTheme = (state)=>state.store.lightTheme
+    export const selectIsLoading = (state)=>state.store.isLoading
+    export const selectIsError = (state)=>state.store.isError
+    export const selectIsLogin = (state)=>state.store.isLoading
+    export const selectIsDelate = (state)=>state.store.isDelate
+    export const selectIsRegister = (state)=>state.store.isRegister
+    export const selectIsVerified = (state)=>state.store.isVerified
+    export const selectToken = (state)=>state.store.token
+    export const selectTefreshToken = (state)=>state.store.refreshToken
+    export const selectSesionId  = (state)=>state.store.sesionId
+    export const selectUserName = (state)=>state.store.userName
+    export const selectEmail = (state)=>state.store.email
+    export const selectUserID = (state)=>state.store.userID
+    export const selectUserAvatar = (state)=>state.store.userAvatar
+    export const selectBalance = (state)=>state.store.balance
+    export const selectTotalIncome = (state)=>state.store.totalIncome
+    export const selectTotalExpense = (state)=>state.store.totalExpense
+    export const selectIncomes = (state)=>state.store.incomes
+    export const selectIncomesCat = (state)=>state.store.incomesCat
+    export const selectIncomesStat = (state)=>state.store.incomesStat
+    export const selectExpense = (state)=>state.store.expense
+    export const selectExpenseCat = (state)=>state.store.expenseCat
+    export const selectExpenseStat = (state)=>state.store.expenseStat
+    export const selectTransactionData = (state)=>state.store.TransactionData       
 
 export const { readDataFromLocalStorage,  saveDataToLocalStorage} = storeSlice.actions
 
-export default storeSlice.reducer;
+export default storeSlice.reducer;         
