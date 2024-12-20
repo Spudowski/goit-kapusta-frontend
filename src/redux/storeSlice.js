@@ -150,14 +150,14 @@ export const selectTefreshToken = (state)=>state.data.refreshToken
 export const selectSesionId  = (state)=>state.data.sesionId
 export const selectUserName = (state)=>state.data.userName
 export const selectEmail = (state)=>state.data.email
-export const selectBalance = (state)=>state.data.balance
 export const selectIncomes = (state)=>state.data.incomes
 export const selectIncomesCat = (state)=>state.data.incomesCat
-export const selectIncomesStat = (state)=>state.data.incomesStat
 export const selectExpense = (state)=>state.data.expense
 export const selectExpenseCat = (state)=>state.data.expenseCat
-export const selectRxpenseStat = (state)=>state.data.expenseStat
 export const selectTransactionData = (state)=>state.data.TransactionData       
+export const selectBalance = (state) => state.balance; // Anita - poprawiłam = wywaliłam data, bo wyskakiwał mi błąd
+export const selectIncomesStat = (state) => state.incomesStat; // Anita - poprawiłam = wywaliłam data, bo wyskakiwał mi błąd
+export const selectExpenseStat = (state) => state.expenseStat; // Anita - poprawiłam = wywaliłam data, bo wyskakiwał mi błąd
 
 export const { readDataFromLocalStorage,  saveDataToLocalStorage} = storeSlice.actions
 
