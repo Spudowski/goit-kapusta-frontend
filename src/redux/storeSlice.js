@@ -52,7 +52,20 @@ const storeSlice = createSlice({
         })
 //2.signInUser
         .addCase(signInUser.fulfilled,  (state,action) => {
-            console.log("signInUser",action.payload)
+            console.log("signInUser", action.payload)
+            state.isError = null
+            state.isLoading = false
+            state.isLogin = true
+            state.token = action.payload.accessToken
+            state.refreshToken = action.payload.refreshToken
+            state.userName = action.payload.userData.username
+            state.email = action.payload.userData.email
+            state.userID = action.payload.userData.id
+            state.userAvatar = action.payload.userData.color
+            state.isVerified = action.payload.userData.veryfi
+            state.balance = action.payload.userData.balance
+//          add transation
+            
         })
 //3.signOutUser      
         .addCase(signOutUser.fulfilled,  (state,action) => {
