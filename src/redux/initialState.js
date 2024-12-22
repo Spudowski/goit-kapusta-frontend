@@ -38,7 +38,7 @@ export const initialState = {
   email: "Olaf@gmail.com",
   userID: 1111,
   userAvatar: null,
-  balance: 0,
+  balance: 100000,
   totalIncome: 1000000,
   totalExpense: 200000,
   incomes: [
