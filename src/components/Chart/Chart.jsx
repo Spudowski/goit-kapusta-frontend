@@ -5,10 +5,10 @@ import css from "./Chart.module.css";
 // import { useSelector } from "react-redux";
 import { BarChart, Bar, ResponsiveContainer, CartesianGrid, XAxis, YAxis, LabelList, Cell} from 'recharts';
 
-export function Chart({ arrOfTransaction }) {
+export function Chart({ arrOfDataChart }) {
   // const allIncomes = useSelector(selectIncomes) 
 
-  const groupedData = arrOfTransaction.reduce((acc, { description, amount }) => {
+  const groupedData = arrOfDataChart.reduce((acc, { description, amount }) => {
  
   const existing = acc.find(item => item.description === description);
   if (existing) {
@@ -26,7 +26,7 @@ export function Chart({ arrOfTransaction }) {
     <div className={css.backgroundRoboczeDoUsuniecia}>
       <div className={css.box}>
         <ResponsiveContainer width="100%" height="100%" className={css.chart} >
-          <BarChart data={sortedData} barGap={25} >
+          <BarChart data={sortedData}>
             <CartesianGrid vertical={false} horizontal={true}/>
             <XAxis dataKey="description" axisLine={{ stroke: '#ccc' }} tickSize={0} tickMargin={10}  />
             <YAxis hide={true} />

@@ -9,12 +9,12 @@ import { selectExpense } from "../../redux/storeSlice";
 export default function ReportExpenses() {
 
   const allExpenses = useSelector(selectExpense);
-
+// roboczo danymi do wykresu są wszystkie wydatki 
   return (
     <div>
       <ReportsIncExpSum />
       <ReportsIconSet />
-      <Chart arrOfTransaction={allExpenses} />
+      <Chart arrOfDataChart={allExpenses} /> 
     </div>
   );
 }
