@@ -1,9 +1,11 @@
-.backgroundRoboczeDoUsuniecia {
-  background-color: var(--light-grey);
-  padding: 50px;
-}
+
 
 @media (min-width: 768px) {
+  .backgroundRoboczeDoUsuniecia {
+      background-color: var(--light-grey);
+      padding: 50px;
+    }
+    
   .box {
     border-radius: 30px;
     width: 704px;
@@ -12,11 +14,17 @@
     background: #fff;
     margin: 0 auto;
   }
+    .chart {
+      padding: 20px 50px;
+    }
 }
 @media (min-width: 1280px) {
   .box {
     border-radius: 30px;
     width: 1034px;
     height: 422px;
+  }
+  .chart {
+   padding: 20px 100px;
   }
 }
