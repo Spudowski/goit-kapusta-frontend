@@ -62,7 +62,7 @@ export function NavBar() {
         isOpen={isExitModalOpen}
         onClose={closeExitModal}
         onConfirm={confirmExit}
-        message="Are you sure you want to leave?"
+        message="Do you really want to leave?"
       />
 
       {/* Modal "Are you sure?" */}
