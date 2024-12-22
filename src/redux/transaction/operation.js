@@ -95,9 +95,12 @@ export const userExpenseCategory = createAsyncThunk(
 //Get transactions data for a specific period
 
 export const userTransactionPeriodDate = createAsyncThunk(
-    'userTransactionPeriodDate/fetchUserTransactionPeriodDate', 
-    async(startDate, endDate, token) => {
-        axios.defaults.headers.common.Authorization = `Bearer ${token}`
-        const resp = await axios.get(`/transaction/period-data?startDate=${startDate}&endDate=${endDate}`)
-        return resp.data
-})
+  "userTransactionPeriodDate/fetchUserTransactionPeriodDate",
+  async (monthIndex, year, token) => {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+    const resp = await axios.get(
+      `/transaction/period-data?monthIndex=${monthIndex}&year=${year}`
+    );
+    return resp.data;
+  }
+);
