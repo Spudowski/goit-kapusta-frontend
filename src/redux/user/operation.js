@@ -15,18 +15,14 @@ export const userDetails = createAsyncThunk(
     async(token) => {
         axios.defaults.headers.common.Authorization = `Bearer ${token}`
         const resp = await axios.get('/user',
-            //sessionsId
-            {
-                "sid": "507f1f77bcf86cd799439011"
-            }
         )
-        return resp
+        return resp.data
 })
 
 
 //Update user's balance
 
-export const getUserBalance = createAsyncThunk(
+export const setUserBalance = createAsyncThunk(
     'getUserBalance/fetchGetUserBalance', 
     async(newBalance,token) => {
         axios.defaults.headers.common.Authorization = `Bearer ${token}`
@@ -36,5 +32,5 @@ export const getUserBalance = createAsyncThunk(
                 "newBalance": 1
             }
         )
-        return resp
+        return resp.data
 })
