@@ -32,15 +32,20 @@
 .login-form-button {
     width: 116px;
     height: 44px;
-    background-color: #FF751D;
     border: none;
     border-radius: 16px;
-    color: white;
+    background-color: #F5F6FB;
+    color: #52555F;
     font-size: 12px;
     font-weight: 700;
     box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 0.19);
     cursor: pointer;
     transition: transform 0.3s ease;
+}
+
+.active {
+    background-color: #FF751D !important;
+    color: white !important;
 }
 
 .login-form-button:active {
