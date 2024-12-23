@@ -8,21 +8,22 @@ const axios = Axios.create({
 //Add an income
 
 export const addUserIncome = createAsyncThunk(
-  "addUserIncome/fetchAddUserIncome",
-  async (income, token) => {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-    const resp = await axios.post(
-      "/transaction/income",
-      //income
-      {
-        description: "Income description",
-        amount: 100,
-        date: "2020-12-31",
-      }
-    );
-    return resp.data;
-  }
-);
+    'addUserIncome/fetchAddUserIncome', 
+    async(income, token) => {
+
+        axios.defaults.headers.common.Authorization = `Bearer ${token}`
+        const resp = await axios.post('/transaction/income',
+            //income
+            {
+                "typeOfTransaction": "income",
+                "description": "Selary",
+                "amount": "500",
+                "date": "2024-10-03",
+                "category": "Food"
+              }
+        )
+        return resp.data
+})
 
 //Get income stats
 
@@ -37,22 +38,22 @@ export const getUserIncome = createAsyncThunk(
 
 //Add an expense
 export const addUserExpense = createAsyncThunk(
-  "addUserExpense/fetchAddUserExpense",
-  async (expense, token) => {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-    const resp = await axios.post(
-      "/transaction/expense",
-      //expense
-      {
-        description: "Expense description",
-        amount: 100,
-        date: "2020-12-31",
-        category: "Sellary",
-      }
-    );
-    return resp.data;
-  }
-);
+    'addUserExpense/fetchAddUserExpense', 
+    async(expense, token) => {
+        axios.defaults.headers.common.Authorization = `Bearer ${token}`
+        const resp = await axios.post('/transaction/expense',
+            //expense
+            {
+                "typeOfTransaction": "expense",
+                "description": "Diner",
+                "amount": "500",
+                "date": "2024-10-03",
+                "category": "Food"
+            }
+        )
+        return resp.data
+})
+
 
 //Get expense stats
 export const getUserExpense = createAsyncThunk(

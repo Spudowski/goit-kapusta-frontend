@@ -15,6 +15,13 @@ export default function HomePage() {
   useEffect(() => {
     if (balance === 0) {
       setWelcomeModalOpen(true);
+
+      // Automatyczne zamknięcie modala po 5 sekundach
+      const timer = setTimeout(() => {
+        setWelcomeModalOpen(false);
+      }, 5000);
+
+      return () => clearTimeout(timer);
     }
   }, [balance]);
 
