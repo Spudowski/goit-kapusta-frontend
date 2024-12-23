@@ -242,27 +242,6 @@ const storeSlice = createSlice({
 
     }})
 
-<<<<<<< Updated upstream
-export const selectLightTheme = (state)=>state.data.lightTheme
-export const selectIsLoading = (state)=>state.data.isLoading
-export const selectIsError = (state)=>state.data.isError
-export const selectIsLogin = (state)=>state.data.isLogin
-export const selectIsDelate = (state)=>state.data.isDelate
-export const selectIsRegister = (state)=>state.data.isRegister
-export const selectToken = (state)=>state.data.token
-export const selectTefreshToken = (state)=>state.data.refreshToken
-export const selectSesionId  = (state)=>state.data.sesionId
-export const selectUserName = (state)=>state.data.userName
-export const selectEmail = (state)=>state.data.email
-export const selectBalance = (state)=>state.data.balance
-export const selectIncomes = (state)=>state.data.incomes
-export const selectIncomesCat = (state)=>state.data.incomesCat
-export const selectIncomesStat = (state)=>state.data.incomesStat
-export const selectExpense = (state)=>state.data.expense
-export const selectExpenseCat = (state)=>state.data.expenseCat
-export const selectRxpenseStat = (state)=>state.data.expenseStat
-export const selectTransactionData = (state)=>state.data.TransactionData       
-=======
     export const selectLightTheme = (state)=>state.store.lightTheme
     export const selectIsLoading = (state)=>state.store.isLoading
     export const selectIsError = (state)=>state.store.isError
@@ -287,7 +266,6 @@ export const selectTransactionData = (state)=>state.data.TransactionData
     export const selectExpenseCat = (state)=>state.store.expenseCat
     export const selectExpenseStat = (state)=>state.store.expenseStat
     export const selectTransactionData = (state)=>state.store.TransactionData       
->>>>>>> Stashed changes
 
 export const { readDataFromLocalStorage,  saveDataToLocalStorage} = storeSlice.actions
 
