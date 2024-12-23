@@ -1,24 +1,58 @@
 import { useState, useEffect } from "react";
 import "../../App.css";
-import { selectIncomesStat, selectExpenseStat } from "../../redux/storeSlice";
+import {
+  selectIncomesStat,
+  selectExpenseStat,
+  selectToken,
+} from "../../redux/storeSlice";
 import css from "./ReportsIncExpSum.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { userTransactionPeriodDate } from "../../redux/transaction/operation";
+
+const monthNames = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 
 export default function ReportsIncExpSum() {
   const currentMonthIndex = new Date().getMonth();
   const currentYear = new Date().getFullYear();
   const [monthIndex, setMonthIndex] = useState(currentMonthIndex);
   const [year, setYear] = useState(currentYear);
+
   const dispatch = useDispatch();
 
   const totalExpenseMonth = useSelector(selectExpenseStat);
   const totalIncomeMonth = useSelector(selectIncomesStat);
+  const token = useSelector(selectToken);
 
-  const monthIncome = totalIncomeMonth ? totalIncomeMonth[monthIndex] || 0 : 0;
-  const monthExpense = totalExpenseMonth
-    ? totalExpenseMonth[monthIndex] || 0
-    : 0;
+  let monthIncome = 0;
+  if (totalIncomeMonth) {
+    Object.entries(totalIncomeMonth).forEach(([key, value]) => {
+      if (key === monthNames[monthIndex]) {
+        monthIncome = value || 0;
+      }
+    });
+  }
+
+  let monthExpense = 0;
+  if (totalExpenseMonth) {
+    Object.entries(totalExpenseMonth).forEach(([key, value]) => {
+      if (key === monthNames[monthIndex]) {
+        monthExpense = value || 0;
+      }
+    });
+  }
 
   const handleMonthChange = (newMonthIndex) => {
     setMonthIndex(newMonthIndex);
@@ -29,8 +63,16 @@ export default function ReportsIncExpSum() {
   };
 
   useEffect(() => {
-    dispatch(userTransactionPeriodDate(monthIndex, year));
-  });
+    if (token) {
+      dispatch(
+        userTransactionPeriodDate({
+          monthIndex,
+          year,
+          token,
+        })
+      );
+    }
+  }, [monthIndex, year, dispatch, token]);
 
   return (
     <div className={css.backgroundRoboczeDoUsuniecia}>
@@ -40,9 +82,9 @@ export default function ReportsIncExpSum() {
           value={monthIndex}
           onChange={(e) => handleMonthChange(Number(e.target.value))}
         >
-          {Array.from({ length: 12 }).map((_, index) => (
+          {monthNames.map((month, index) => (
             <option key={index} value={index}>
-              {new Date(0, index).toLocaleString("en", { month: "long" })}
+              {month}
             </option>
           ))}
         </select>
