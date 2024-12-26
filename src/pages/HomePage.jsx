@@ -13,13 +13,13 @@ export default function HomePage() {
 
   // Otwieranie modala przy zerowym balance
   useEffect(() => {
-    if (balance === 0) {
+    if (!balance) {
       setWelcomeModalOpen(true);
 
-      // Automatyczne zamknięcie modala po 5 sekundach
+      // Automatyczne zamknięcie modala po 10 sekundach
       const timer = setTimeout(() => {
         setWelcomeModalOpen(false);
-      }, 5000);
+      }, 10000);
 
       return () => clearTimeout(timer);
     }
@@ -48,7 +48,8 @@ export default function HomePage() {
       <WelcomeModal
         isOpen={isWelcomeModalOpen}
         onClose={closeWelcomeModal}
-        message="Hello! To get started, enter the current balance of your account!\nYou can't spend money until you have it :)"
+        firstLine="Hello! To get started, enter the current balance of your account!"
+        secondLine="You can't spend money until you have it :)"
       />
     </div>
   );
