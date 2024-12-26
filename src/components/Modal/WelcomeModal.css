@@ -15,9 +15,8 @@
   position: relative;
   background: linear-gradient(180deg, #143a6c, #0e2649);
   border-radius: 30px;
-  padding: 20px;
   width: 288px;
-  height: 163px;
+  height: 152px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,15 +38,29 @@
 .welcome-modal-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 20px; /* Odstęp między liniami tekstu */
+  padding-top: 40px;
+  padding-bottom: 32px;
+  padding-left: 28px;
+  padding-right: 28px;
 }
 
-.welcome-modal-message {
+.first-line {
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
-  text-align: center;
   color: white;
   line-height: 1.5;
+  margin-bottom: 20px;
+  height: 38px;
+  width: 229px;
+}
+
+.second-line {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: white;
+  line-height: 1.4;
+  height: 33px;
+  width: 229px;
 }
